@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block name %}
+	<h2>Добавление Специальности</h2>
+{% endblock %}
+
+{% block content %}
+	{% for e in form.none_field_errors %}
+    	<div>{{ e }}</div>
+	{% endfor %}
+	<form method="post" action="/add_spec/">
+		{% csrf_token %}
+    	<fieldset>
+            <ul>
+        	{% for field in form %}
+                <li>
+            	   <label>{{ field.label }}: </label>
+            	   {{ field }}
+                </li>
+        	{% endfor %}
+            </ul>
+    	</fieldset>
+        <button type="submit">Отправить</button>
+	</form>
+{% endblock %}

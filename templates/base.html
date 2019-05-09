@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Аббитуриент</title>
+	<style type="text/css">
+body {
+     background: url('/media/background.jpg') no-repeat fixed;
+     background-size: 100% 100%;
+     color: #000;
+     font-family: Arial, sans-serif;
+     font-size: 14px;
+}
+ul{
+	padding: 2px;
+	margin: 2px;
+	text-decoration: none;
+	display: block;
+}
+
+ ul li {
+    list-style-type: none;
+    padding: 5px; 
+}
+
+fieldset{
+	margin: 5px;
+}
+
+#header {
+     background: #00067d;
+     color: white;
+     border: 1px black solid;
+     width: 100%;
+     height: 55px;
+}
+ 
+#container {
+     background: #0a36a6;
+     border: 5px black solid;
+     margin: auto auto;
+     padding: 5px;
+     text-align: center;
+     width: 80%;
+     height: 100%;
+}
+ 
+#navigation {
+	margin-top: 5px;
+     background: #c4c7ff;
+     border: 1px black dashed;
+     width: 100%;
+     height: 50px;
+}
+ 
+#content {
+     background: #c4c7ff;
+     margin: auto auto;
+     padding: 5px;
+     width: 80%;
+     height: 100%;
+     text-align: left;
+}
+ 
+#clear {
+     clear: both;
+}
+ 
+#footer {
+    background: #00067d;
+	width: 100%;
+	height: 40px;
+}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h2>Аббитуриент</h2>
+		</div>
+		 
+		<div id="navigation">
+			
+			{% block name %}
+			{% endblock %}
+		</div>
+		 
+		 
+		<div id="content">
+			{% block content %}
+			{% endblock %}
+		</div>
+		 
+		<div id="clear"></div>
+							   
+		<div id="footer">
+			<h2><a href='/' id='to_index'>На главную</a></h2>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block name %}
+	<h2>Просмотр анкет</h2>
+{% endblock %}
+
+{% block content %}
+	{% for i in ankets %}
+		<fieldset>
+			<ul>
+				<li>Регистрационный номер: {{ i.id }}</li>
+				<li>ФИО: {{ i.fio }}</li>
+				<li>Дата рождения {{ i.date }}</li>
+				<li>Оконченное среднее учебное заведение: {{ i.sr_obr }} </li>
+				<li>Дата окончания учебного заведения: {{ i.date_sr_obr }} </li> 
+				<li>Специальность: {{ i.spec }}</li>
+			</ul>
+		</fieldset>
+	{% endfor %}
+{% endblock %}
