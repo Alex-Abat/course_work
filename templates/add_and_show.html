@@ -1,0 +1,32 @@
+<!-- шаблон для добавления анкеты и результатов экзаменов -->
+{% extends 'base.html' %}
+
+{% block name %}
+	<h2>{{ name }}</h2>
+{% endblock %}
+
+{% block content %}
+	<form method="post">
+		{% csrf_token %}
+    	<fieldset>
+            <ul>
+        	{% for field in form %}
+                <li>
+            	   <label>{{ field.label }}:</label> 
+                   {{ field }}
+                   <div class="error">
+                        {{ field.errors }}
+                    </div>
+                </li>
+        	{% endfor %}
+            </ul>
+    	</fieldset>
+        <button type="submit">Отправить</button>
+	</form>
+    <h3>Добавленные {{ name }}</h3> 
+    <ul>
+        {% for i in list %}
+            <li>{{ i.name }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

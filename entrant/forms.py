@@ -25,3 +25,19 @@ class ExamForm(forms.Form):#форма для добавления резуль�
 		a = Exam(**self.cleaned_data)
 		a.save()
 		return a
+
+class SpecForm(forms.Form):
+	name = forms.CharField(max_length=20, label='Название специальности')
+
+	def save(self):
+		a = Special(**self.cleaned_data)
+		a.save()
+		return a
+
+class DiscForm(forms.Form):
+	name = forms.CharField(max_length=20, label='Название дисциплины')
+
+	def save(self):
+		a = Disc(**self.cleaned_data)
+		a.save()
+		return a
