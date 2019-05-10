@@ -1,3 +1,4 @@
+<!-- шаблон для просмотра всех анкет -->
 {% extends 'base.html' %}
 
 {% block name %}
@@ -7,13 +8,22 @@
 {% block content %}
 	{% for i in ankets %}
 		<fieldset>
+			<h3>Анкетные данные:</h3>
 			<ul>
 				<li>Регистрационный номер: {{ i.id }}</li>
 				<li>ФИО: {{ i.fio }}</li>
-				<li>Дата рождения {{ i.date }}</li>
+				<li>Дата рождения: {{ i.date }}</li>
 				<li>Оконченное среднее учебное заведение: {{ i.sr_obr }} </li>
 				<li>Дата окончания учебного заведения: {{ i.date_sr_obr }} </li> 
 				<li>Специальность: {{ i.spec }}</li>
+			</ul>
+			<h3>Результаты экзаменов:</h3>
+			<ul>
+				{% for exam in ex %}
+					{% if exam.entrant.id == i.id %}
+						<li>{{ exam.disc }}: {{ exam.ball }}</li>
+					{% endif %}
+				{% endfor %}
 			</ul>
 		</fieldset>
 	{% endfor %}

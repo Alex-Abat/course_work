@@ -1,21 +1,22 @@
+<!-- шаблон для добавления анкеты и результатов экзаменов -->
 {% extends 'base.html' %}
 
 {% block name %}
-	<h2>Добавление анкеты</h2>
+	<h2>{{ name }}</h2>
 {% endblock %}
 
 {% block content %}
-	{% for e in form.none_field_errors %}
-    	<div>{{ e }}</div>
-	{% endfor %}
 	<form method="post">
 		{% csrf_token %}
     	<fieldset>
             <ul>
         	{% for field in form %}
                 <li>
-            	   <label>{{ field.label }}: </label>
-            	   {{ field }}
+            	   <label>{{ field.label }}:</label> 
+                   {{ field }}
+                   <div class="error">
+                        {{ field.errors }}
+                    </div>
                 </li>
         	{% endfor %}
             </ul>
